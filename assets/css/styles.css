@@ -1,0 +1,19 @@
+:root {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 62.5%;
+    background: #ddfaef;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gametitlediv {
+    font-size: 2.4em;
+    font-weight: bolder;
+    color: lightsalmon;
+}
