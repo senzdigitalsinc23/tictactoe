@@ -7,3 +7,7 @@ function createElement(element, idAndClassName = '') {
 
     return el;
 }
+
+function attributes(element, attr, value) {
+    return element.setAttribute(attr, value);
+}
