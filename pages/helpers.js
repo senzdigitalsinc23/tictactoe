@@ -34,5 +34,11 @@ function attributes(attributes, elements = "" | []) {
 }
 
 function attach(parent, child) {
-    return parent.appendChild(child);
+    if (Array.isArray(children)) {
+        children.map((child) => {
+            parent.append(child);
+        })
+    }else{
+        parent.append(children);
+    }
 }
