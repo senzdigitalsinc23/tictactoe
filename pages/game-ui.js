@@ -16,4 +16,4 @@ gameTitleDiv.innerHTML = "TIC TAC TOE"
 
 
 //attach elements
-mainContainer.appendChild(gameTitleDiv)
+attach(mainContainer, gameTitleDiv);

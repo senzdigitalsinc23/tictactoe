@@ -8,6 +8,31 @@ function createElement(element, idAndClassName = '') {
     return el;
 }
 
-function attributes(element, attr, value) {
-    return element.setAttribute(attr, value);
+function attributes(attributes, elements = "" | []) {
+    let properties = Object.keys(attributes);
+    let values = Object.values(attributes);
+
+    let attribs = "";
+
+    let valueCount = 0;
+
+   if (Array.isArray(elements)) {
+        elements.map((element) => {
+            for (let i = 0; i < Object.keys(attributes).length; i++) {
+            
+                element.setAttribute(properties[i], values[i]);
+            }
+        })
+   }else {
+        for (let i = 0; i < Object.keys(attributes).length; i++) {
+            
+            elements.setAttribute(properties[i], values[i]);
+        }
+   }
+    
+     
+}
+
+function attach(parent, child) {
+    return parent.appendChild(child);
 }
