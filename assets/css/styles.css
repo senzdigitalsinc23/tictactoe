@@ -4,16 +4,90 @@
     background: #ddfaef;
 }
 
-.main-container {
-    width: 100%;
+.controlscontainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 10px;
+}
+
+.main-container {
+    display: block;
+    width: 100%;
+    flex-direction: column;
 
 }
 
 .gametitlediv {
-    font-size: 2.4em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 2.8em;
     font-weight: bolder;
     color: lightsalmon;
+}
+
+.gamemonitordiv {
+    width: 30%;
+}
+
+.controlsdiv {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    width: 200px;
+    border: 1px solid rgb(77, 90, 206);
+    padding: 10px 10px;
+    gap: 2px;
+    border-radius: 5px;
+    background-color: rgb(30, 200, 200);
+}
+
+button {
+    cursor: pointer;
+    padding: 3px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.start {
+    background-color: aquamarine;
+    font-weight: bolder;
+    font-size: medium;
+    color: rgb(122, 71, 8); 
+}
+
+.reset {
+    background-color: red;
+    font-weight: bolder;
+    font-size: medium;
+    color: rgb(40, 26, 9); 
+}
+
+.gameboardcontainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.gameboard {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgb(251, 221, 157);
+    background-image: url('../img/board.png');
+    background-size: cover;
+
+}
+
+.gameboard>div {
+    border: 0px solid white;
+}
+
+
+@media (min-width: px) {
+    .controlscontainer {
+        display: flex;
+        flex-direction: column;
+    }
 }

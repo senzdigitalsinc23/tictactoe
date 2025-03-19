@@ -1,9 +1,10 @@
 
-function createElement(element, idAndClassName = '') {
+function createElement(element, idAndClassName = '', defaultText = '') {
     let el = document.createElement(element);
 
     idAndClassName != '' ? el.setAttribute('id', idAndClassName) : '';
     idAndClassName != '' ? el.setAttribute('class', idAndClassName) : '';
+    defaultText != '' ? (el.textContent = defaultText) : '';
 
     return el;
 }
@@ -33,7 +34,7 @@ function attributes(attributes, elements = "" | []) {
      
 }
 
-function attach(parent, child) {
+function attach(parent, children = "" | []) {
     if (Array.isArray(children)) {
         children.map((child) => {
             parent.append(child);
