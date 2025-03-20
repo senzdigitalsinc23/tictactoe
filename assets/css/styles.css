@@ -103,13 +103,7 @@ button {
 }
 
 .gameboard>div {
+    display: flex;
+    justify-content: center;
     border: 0px solid white;
-}
-
-
-@media (min-width: px) {
-    .controlscontainer {
-        display: flex;
-        flex-direction: column;
-    }
 }
