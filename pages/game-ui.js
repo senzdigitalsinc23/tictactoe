@@ -10,15 +10,18 @@ let btnReset = createElement('button', 'reset', "Reset")
 let gameMonitorDiv = createElement('div', 'gamemonitordiv', 'Game Monitor');
 let gameBoardContainer = createElement('gameboardcontainer', 'gameboardcontainer');
 let gameBoard = createElement('div', 'gameboard')
-let squareOne = createElement('div', 'squareone');
-let squareTwo = createElement('div', 'squaretwo');
-let squareThree = createElement('div', 'squarethree');
-let squareFour = createElement('div', 'squarefour');
-let squareFive = createElement('div', 'squarefive');
-let squareSix = createElement('div', 'squaresix');
-let squareSeven = createElement('div', 'squareseven');
-let squareEight = createElement('div', 'squareeight');
-let squareNine = createElement('div', 'squarenine');
+
+let playerOneScreen = createElement('div', 'playeronescreen')
+let playerOneIndicator = createElement('div', 'playeroneindicator', 'X');
+let playerOneScore = createElement('div', 'playeronescore', '3');
+let playerOneName = createElement('div', 'playeronename', 'Player 1');
+let playerOneInd = createElement('div','playeroneind');
+
+let playerTwoScreen = createElement('div', 'playertwoscreen')
+let playerTwoIndicator = createElement('div', 'playertwoindicator', 'O');
+let playerTwoScore = createElement('div', 'playertwoscore', '2');
+let playerTwoName = createElement('div', 'playertwoname', 'Player 2')
+let playerTwoInd = createElement('div', 'playertwoind')
 
 //Create gameboard squares
 let squares = [];
@@ -32,9 +35,6 @@ for (let i = 1; i <= 3; i++) {
     
 }
 
-console.log(squares);
-
-
 //set attributes
 
 //Select elements
@@ -43,16 +43,22 @@ console.log(squares);
 
 //add styling
 
-for (let i = 0; i < 9; i++) {
+/* for (let i = 0; i < 9; i++) {
     squares[i].addEventListener('click', () => {
         alert('Square ' + i + ' is clicked');
     })
     
-}
+} */
 
 //attach elements
-attach(mainContainer, [gameTitleDiv, controlsContainer, gameMonitorDiv, gameBoardContainer]);
-attach(controlsContainer, controlsDiv)
+attach(mainContainer, [gameTitleDiv, controlsContainer, gameBoardContainer]);
+
+attach(playerOneInd, [playerOneIndicator, playerOneScore])
+attach(playerOneScreen, [playerOneName, playerOneInd]);
+
+attach(playerTwoInd, [playerTwoIndicator, playerTwoScore])
+attach(playerTwoScreen, [playerTwoName, playerTwoInd]);
+attach(controlsContainer, [playerOneScreen, controlsDiv, playerTwoScreen])
 attach(gameBoardContainer, [gameBoard]);
 attach(controlsDiv, [btnStart, btnReset]);
 attach(gameBoard, squares)
