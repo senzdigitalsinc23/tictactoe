@@ -39,6 +39,18 @@ let addMove = (move) => {
     availablePos.splice(index, 1);
 }
 
+let play = (position) => {
+    if (availablePos.includes(position)) {
+       addMove(position)
+       //winLogic();
+        
+       return reportTurn();
+    }else {
+        return "Selection not available";
+    }
+}
+
+
 let winLogic = () => {
     if (playerOneMoves.length == 3) {
         if (playerOneMoves.includes(0) && playerOneMoves.includes(1) && playerOneMoves.includes(2)) {
@@ -46,7 +58,6 @@ let winLogic = () => {
             countPlayerOneMoves = 0;
             playerOneWins++;
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -57,7 +68,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -68,7 +78,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -79,7 +88,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -90,7 +98,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -101,7 +108,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -112,7 +118,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -123,7 +128,6 @@ let winLogic = () => {
             playerOneWins++;
 
             playerOneMoves = []
-            playerTwoMoves = []
 
             playerTurn = 1;
 
@@ -132,17 +136,17 @@ let winLogic = () => {
 
         
         playerOneMoves = []
-        playerTwoMoves = [];
 
-    }else if (playerTwoMoves.length == 3) {
+    }
+    
+    if (playerTwoMoves.length == 3) {
         if (playerTwoMoves.includes(0) && playerTwoMoves.includes(1) && playerTwoMoves.includes(2)) {
             availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
             countPlayerTwoMoves = 0;
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -152,19 +156,17 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
         } else if (playerTwoMoves.includes(6) && playerTwoMoves.includes(7) && playerTwoMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];alert()
             countPlayerTwoMoves = 0;
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -174,8 +176,7 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -185,8 +186,7 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -196,8 +196,7 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -207,8 +206,7 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
@@ -218,15 +216,14 @@ let winLogic = () => {
             playerTwoWins++;
 
             playerTwoMoves = []
-            playerOneMoves = []
-
+        
             playerTurn = 1;
 
             return 2;
         }
 
         playerTwoMoves = []
-        playerOneMoves = [];
+    
     }
 }
 
@@ -240,16 +237,21 @@ let reportWinner = () => {
     }
 }
 
+play(1);
+play(0);
+play(3);
+play(4);
+play(5);
+play(8)
 
+play(1);
+play(0);
+play(3);
+play(4);
+play(5);
+play(8)
 
-let play = (position) => {
-    if (availablePos.includes(position)) {
-       addMove(position)
-       winLogic();
-        
-       return reportTurn();
-    }else {
-        return "Selection not available";
-    }
-}
+console.log(reportWinner());
 
+console.log(playerOneWins);
+console.log(playerTwoWins);
