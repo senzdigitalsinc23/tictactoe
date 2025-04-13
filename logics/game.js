@@ -38,3 +38,194 @@ let addMove = (move) => {
     
     availablePos.splice(index, 1);
 }
+
+let winLogic = () => {
+    if (playerOneMoves.length == 3) {
+        if (playerOneMoves.includes(0) && playerOneMoves.includes(1) && playerOneMoves.includes(2)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        } else if (playerOneMoves.includes(3) && playerOneMoves.includes(4) && playerOneMoves.includes(5)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        } else if (playerOneMoves.includes(6) && playerOneMoves.includes(7) && playerOneMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        } else if (playerOneMoves.includes(0) && playerOneMoves.includes(3) && playerOneMoves.includes(6)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        } else if (playerOneMoves.includes(1) && playerOneMoves.includes(4) && playerOneMoves.includes(7)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        } else if (playerOneMoves.includes(2) && playerOneMoves.includes(5) && playerOneMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        }else if (playerOneMoves.includes(0) && playerOneMoves.includes(4) && playerOneMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        }else if (playerOneMoves.includes(2) && playerOneMoves.includes(4) && playerOneMoves.includes(6)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerOneMoves = 0;
+            playerOneWins++;
+
+            playerOneMoves = []
+            playerTwoMoves = []
+
+            playerTurn = 1;
+
+            return 1;
+        }
+
+        
+        playerOneMoves = []
+        playerTwoMoves = [];
+
+    }else if (playerTwoMoves.length == 3) {
+        if (playerTwoMoves.includes(0) && playerTwoMoves.includes(1) && playerTwoMoves.includes(2)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(3) && playerTwoMoves.includes(4) && playerTwoMoves.includes(5)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(6) && playerTwoMoves.includes(7) && playerTwoMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(0) && playerTwoMoves.includes(3) && playerTwoMoves.includes(6)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(1) && playerTwoMoves.includes(4) && playerTwoMoves.includes(7)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(2) && playerTwoMoves.includes(5) && playerTwoMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        }else if (playerTwoMoves.includes(0) && playerTwoMoves.includes(4) && playerTwoMoves.includes(8)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        } else if (playerTwoMoves.includes(2) && playerTwoMoves.includes(4) && playerTwoMoves.includes(6)) {
+            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            countPlayerTwoMoves = 0;
+            playerTwoWins++;
+
+            playerTwoMoves = []
+            playerOneMoves = []
+
+            playerTurn = 1;
+
+            return 2;
+        }
+
+        playerTwoMoves = []
+        playerOneMoves = [];
+    }
+}
