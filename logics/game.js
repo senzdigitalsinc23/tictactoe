@@ -21,3 +21,20 @@ let reportTurn = () => {
         return "Player 2's turn";
     }
 }
+
+
+let addMove = (move) => {
+    var index = availablePos.indexOf(move);
+
+    if (playerTurn == 1) {
+        playerOneMoves.push(move);
+        countPlayerOneMoves++;       
+        switchPlayer(2);
+    }else if(playerTurn == 2){
+        playerTwoMoves.push(move);
+        countPlayerTwoMoves++; 
+        switchPlayer(1);
+    }
+    
+    availablePos.splice(index, 1);
+}
