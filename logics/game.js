@@ -239,3 +239,17 @@ let reportWinner = () => {
         return "Player 2 wins";
     }
 }
+
+
+
+let play = (position) => {
+    if (availablePos.includes(position)) {
+       addMove(position)
+       winLogic();
+        
+       return reportTurn();
+    }else {
+        return "Selection not available";
+    }
+}
+
