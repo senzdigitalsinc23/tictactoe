@@ -229,3 +229,13 @@ let winLogic = () => {
         playerOneMoves = [];
     }
 }
+
+
+
+let reportWinner = () => {
+    if (winLogic() == 1) {
+        return "Player 1 wins";
+    }else if (winLogic() == 2){
+        return "Player 2 wins";
+    }
+}
