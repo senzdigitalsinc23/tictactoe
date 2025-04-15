@@ -9,3 +9,14 @@ const winPattern = [
     [0,4,5], [2,4,6]
 ];
 
+function checkWinner(board, player) {
+    return winPattern.some(pattern => 
+        pattern.every(index => board[index] === player)
+    );
+}
+
+function resetGame() {
+    board = ["", "", "", "", "", "", "", "", ""];
+    currentPlayer = "X";
+    gameActive = true;
+}
