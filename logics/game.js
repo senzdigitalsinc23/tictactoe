@@ -20,3 +20,28 @@ function resetGame() {
     currentPlayer = "X";
     gameActive = true;
 }
+
+
+function makeMove(index) {
+    if (!gameActive || board[index] !== "") {return;}
+    
+    board[index] = currentPlayer;
+    if (checkWinner(board, currentPlayer)) {
+        if (currentPlayer == "X") {
+            countPlayerWins[0]++;
+        }else if (currentPlayer == "O") {
+            countPlayerWins[1]++;
+        }
+        gameActive = false;
+        resetGame();
+        return `${currentPlayer} wins`
+    }else if (board.every(cell => cell !== "")) {
+        
+        gameActive = false;
+        
+        resetGame();
+        return "Draw Game";
+    }else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+}    
