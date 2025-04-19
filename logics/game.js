@@ -1,255 +1,117 @@
-let availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-let playerTurn = 1;
-let playerOneMoves = [];
-let playerTwoMoves = [];
-let countPlayerOneMoves = 0;
-let countPlayerTwoMoves = 0;
-let playerOneWins = 0;
-let playerTwoWins = 0;
-
-let switchPlayer = (player) => {
-    playerTurn = player;
-
-    return playerTurn;
-}
 
 
-let reportTurn = () => {
-    if (playerTurn == 1) {
-        return "Player 1's turn";
-    }else if (playerTurn == 2) {
-        return "Player 2's turn";
+const Player = (playerName, marker) => {
+    return { playerName, marker };
+};
+
+const gamePlay = (() => {
+    let board = Array(9).fill("");
+    let currentPlayer = "X";
+    let gameActive = true;
+    let playerOneWins = 0;
+    let playerTwoWins = 0;
+    let winner =  null;
+
+    const winPattern = [
+        [0,1,2], [3,4,5], [6,7,8],
+        [0,3,6], [1,4,7], [2,5,8],
+        [0,4,5], [2,4,6]
+    ];
+
+    const restartGame = () => {
+        board = Array(9).fill("");
+        currentPlayer = "X";
+        gameActive = true;
+        playerOneWins = 0;
+        playerTwoWins = 0;
+        winner =  null;
     }
-}
 
+    const getWinner = () => {return winner}
+    let setPlayerOneWins = () => {playerOneWins++;}
+    let setPlayerTwoWins = () => {playerTwoWins++;}
 
-let addMove = (move) => {
-    var index = availablePos.indexOf(move);
+    const getPlayerOneWins = () => {return playerOneWins;}
+    const getPlayerTwoWins = () => {return playerTwoWins;}
 
-    if (playerTurn == 1) {
-        playerOneMoves.push(move);
-        countPlayerOneMoves++;       
-        switchPlayer(2);
-    }else if(playerTurn == 2){
-        playerTwoMoves.push(move);
-        countPlayerTwoMoves++; 
-        switchPlayer(1);
+    const checkWinner = (board, player) => {
+        return winPattern.some(pattern => 
+            pattern.every(index => board[index] === player)
+        );
+    }
+
+    const resetGame = () => {
+        board = ["", "", "", "", "", "", "", "", ""];
+        currentPlayer = "X";
+        gameActive = true;
     }
     
-    availablePos.splice(index, 1);
-}
 
-let winLogic = () => {
-    if (playerOneMoves.length == 3) {
-        if (playerOneMoves.includes(0) && playerOneMoves.includes(1) && playerOneMoves.includes(2)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-            playerOneMoves = []
-            playerTwoMoves = []
+    const makeMove = (index) => {
+        if (!gameActive || board[index] !== "") {return;}
+        
+        board[index] = currentPlayer;
+        if (checkWinner(board, currentPlayer)) {
+            if (currentPlayer == "X") {
+                setPlayerOneWins();
+            }else if (currentPlayer == "O") {
+                setPlayerTwoWins();
+            }
+            gameActive = false;
 
-            playerTurn = 1;
+            winner = currentPlayer == "X" ? 1 : 2;
 
-            return 1;
-        } else if (playerOneMoves.includes(3) && playerOneMoves.includes(4) && playerOneMoves.includes(5)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
+            resetGame();
 
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        } else if (playerOneMoves.includes(6) && playerOneMoves.includes(7) && playerOneMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        } else if (playerOneMoves.includes(0) && playerOneMoves.includes(3) && playerOneMoves.includes(6)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        } else if (playerOneMoves.includes(1) && playerOneMoves.includes(4) && playerOneMoves.includes(7)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        } else if (playerOneMoves.includes(2) && playerOneMoves.includes(5) && playerOneMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        }else if (playerOneMoves.includes(0) && playerOneMoves.includes(4) && playerOneMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
-        }else if (playerOneMoves.includes(2) && playerOneMoves.includes(4) && playerOneMoves.includes(6)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerOneMoves = 0;
-            playerOneWins++;
-
-            playerOneMoves = []
-            playerTwoMoves = []
-
-            playerTurn = 1;
-
-            return 1;
+            return;
+        }else if (board.every(cell => cell !== "")) {
+            
+            gameActive = false;
+            
+            resetGame();
+            return winner =  "Draw";
+        }else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
 
-        
-        playerOneMoves = []
-        playerTwoMoves = [];
-
-    }else if (playerTwoMoves.length == 3) {
-        if (playerTwoMoves.includes(0) && playerTwoMoves.includes(1) && playerTwoMoves.includes(2)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(3) && playerTwoMoves.includes(4) && playerTwoMoves.includes(5)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(6) && playerTwoMoves.includes(7) && playerTwoMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(0) && playerTwoMoves.includes(3) && playerTwoMoves.includes(6)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(1) && playerTwoMoves.includes(4) && playerTwoMoves.includes(7)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(2) && playerTwoMoves.includes(5) && playerTwoMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        }else if (playerTwoMoves.includes(0) && playerTwoMoves.includes(4) && playerTwoMoves.includes(8)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        } else if (playerTwoMoves.includes(2) && playerTwoMoves.includes(4) && playerTwoMoves.includes(6)) {
-            availablePos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            countPlayerTwoMoves = 0;
-            playerTwoWins++;
-
-            playerTwoMoves = []
-            playerOneMoves = []
-
-            playerTurn = 1;
-
-            return 2;
-        }
-
-        playerTwoMoves = []
-        playerOneMoves = [];
+        return;
     }
-}
+
+    return { 
+        getPlayerOneWins, 
+        getPlayerTwoWins, 
+        makeMove, 
+        getWinner,
+        restartGame
+    };
+})();
 
 
+gamePlay.makeMove(0);
+gamePlay.makeMove(4);
+gamePlay.makeMove(1);
+gamePlay.makeMove(8);
+gamePlay.makeMove(2);
 
-let reportWinner = () => {
-    if (winLogic() == 1) {
-        return "Player 1 wins";
-    }else if (winLogic() == 2){
-        return "Player 2 wins";
-    }
-}
+console.log(`Player ${gamePlay.getWinner()} wins`);
+
+gamePlay.makeMove(0);
+gamePlay.makeMove(4);
+gamePlay.makeMove(1);
+gamePlay.makeMove(8);
+gamePlay.makeMove(2);
+
+console.log(`Player ${gamePlay.getWinner()} wins`);
+
+gamePlay.makeMove(4);
+gamePlay.makeMove(0);
+gamePlay.makeMove(8);
+gamePlay.makeMove(2);
+gamePlay.makeMove(7);
+gamePlay.makeMove(1);
 
 
+console.log(`Player ${gamePlay.getWinner()} wins`);
 
-let play = (position) => {
-    if (availablePos.includes(position)) {
-       addMove(position)
-       winLogic();
-        
-       return reportTurn();
-    }else {
-        return "Selection not available";
-    }
-}
-
+console.log(gamePlay.getPlayerOneWins());
+console.log(gamePlay.getPlayerTwoWins());
