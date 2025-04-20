@@ -99,7 +99,7 @@ button {
     border: 5px solid rgb(251, 221, 157);
     background-image: url('../img/board.png');
     background-size: cover;
-
+    gap: 10px;
 }
 
 .gameboard>div {
@@ -110,6 +110,7 @@ button {
     font-size: 5em;
     color: rgb(198, 184, 159);
     border: 0px solid white;
+    cursor: pointer;
 }
 
 .gamestatus {
