@@ -31,7 +31,7 @@ const gamePlay = (() => {
         winner =  null;
     }
 
-    let setWinner = (winner) => { this.winner = winner}
+    let resetWinner = () => { winner = null}
     const getWinner = () => {return winner}
     let setPlayerOneWins = () => {playerOneWins++;}
     let setPlayerTwoWins = () => {playerTwoWins++;}
@@ -96,7 +96,7 @@ const gamePlay = (() => {
         getGameActive,
         getBoard,
         resetGame,
-        setWinner,
+        resetWinner,
     };
 })();
 
