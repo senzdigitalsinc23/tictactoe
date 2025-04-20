@@ -12,11 +12,15 @@ const gamePlay = (() => {
     let playerTwoWins = 0;
     let winner =  null;
 
+    const getBoard = () => { return board}
+
     const winPattern = [
         [0,1,2], [3,4,5], [6,7,8],
         [0,3,6], [1,4,7], [2,5,8],
-        [0,4,5], [2,4,6]
+        [0,4,8], [2,4,6]
     ];
+
+    const getGameActive = () => { return gameActive; }
 
     const restartGame = () => {
         board = Array(9).fill("");
@@ -34,6 +38,8 @@ const gamePlay = (() => {
     const getPlayerOneWins = () => {return playerOneWins;}
     const getPlayerTwoWins = () => {return playerTwoWins;}
 
+    const getCurrentPlayer = () => {return currentPlayer;}
+
     const checkWinner = (board, player) => {
         return winPattern.some(pattern => 
             pattern.every(index => board[index] === player)
@@ -41,13 +47,14 @@ const gamePlay = (() => {
     }
 
     const resetGame = () => {
-        board = ["", "", "", "", "", "", "", "", ""];
+        board = Array(9).fill("");
         currentPlayer = "X";
         gameActive = true;
     }
     
 
     const makeMove = (index) => {
+        //alert(index)
         if (!gameActive || board[index] !== "") {return;}
         
         board[index] = currentPlayer;
@@ -69,7 +76,7 @@ const gamePlay = (() => {
             gameActive = false;
             
             resetGame();
-            return winner =  "Draw";
+            return winner = 0;
         }else {
             currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
@@ -82,36 +89,12 @@ const gamePlay = (() => {
         getPlayerTwoWins, 
         makeMove, 
         getWinner,
-        restartGame
+        restartGame,
+        getCurrentPlayer,
+        getGameActive,
+        getBoard
     };
 })();
 
 
-gamePlay.makeMove(0);
-gamePlay.makeMove(4);
-gamePlay.makeMove(1);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
 
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-gamePlay.makeMove(0);
-gamePlay.makeMove(4);
-gamePlay.makeMove(1);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
-
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-gamePlay.makeMove(4);
-gamePlay.makeMove(0);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
-gamePlay.makeMove(7);
-gamePlay.makeMove(1);
-
-
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-console.log(gamePlay.getPlayerOneWins());
-console.log(gamePlay.getPlayerTwoWins());
