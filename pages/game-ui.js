@@ -11,6 +11,10 @@ let gameMonitorDiv = createElement('div', 'gamemonitordiv', 'Game Monitor');
 let gameBoardContainer = createElement('gameboardcontainer', 'gameboardcontainer');
 let gameBoard = createElement('div', 'gameboard')
 
+let gameStatusContainer = createElement('div', 'gamestatus');
+let continueBtn = createElement('button', 'continue', 'Continue');
+let displayStatus = createElement('div', 'displayStatus', '')
+
 let playerOneScreen = createElement('div', 'playeronescreen')
 let playerOneIndicator = createElement('div', 'playeroneindicator', 'X');
 let playerOneScore = createElement('div', 'playeronescore', '3');
@@ -51,8 +55,8 @@ for (let i = 1; i <= 3; i++) {
 } */
 
 //attach elements
-attach(mainContainer, [gameTitleDiv, controlsContainer, gameBoardContainer]);
-
+attach(mainContainer, [gameTitleDiv, controlsContainer, gameStatusContainer, gameBoardContainer]);
+attach(gameStatusContainer, [displayStatus, continueBtn])
 attach(playerOneInd, [playerOneIndicator, playerOneScore])
 attach(playerOneScreen, [playerOneName, playerOneInd]);
 
