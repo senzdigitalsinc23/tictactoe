@@ -12,18 +12,18 @@ let gameBoardContainer = createElement('gameboardcontainer', 'gameboardcontainer
 let gameBoard = createElement('div', 'gameboard')
 
 let gameStatusContainer = createElement('div', 'gamestatus');
-let continueBtn = createElement('button', 'continue', 'Continue');
-let displayStatus = createElement('div', 'displayStatus', '')
+let continueBtn = createElement('button', 'continue', 'Next Round');
+let displayStatus = createElement('div', 'displaystatus', '')
 
 let playerOneScreen = createElement('div', 'playeronescreen')
 let playerOneIndicator = createElement('div', 'playeroneindicator', 'X');
-let playerOneScore = createElement('div', 'playeronescore', '3');
+let playerOneScore = createElement('div', 'playeronescore', '0');
 let playerOneName = createElement('div', 'playeronename', 'Player 1');
 let playerOneInd = createElement('div','playeroneind');
 
 let playerTwoScreen = createElement('div', 'playertwoscreen')
 let playerTwoIndicator = createElement('div', 'playertwoindicator', 'O');
-let playerTwoScore = createElement('div', 'playertwoscore', '2');
+let playerTwoScore = createElement('div', 'playertwoscore', '0');
 let playerTwoName = createElement('div', 'playertwoname', 'Player 2')
 let playerTwoInd = createElement('div', 'playertwoind')
 
