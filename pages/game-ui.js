@@ -39,28 +39,12 @@ for (let i = 1; i <= 3; i++) {
     
 }
 
-//set attributes
-
-//Select elements
-//gameTitleDiv.innerHTML = "TIC TAC TOE"
-
-
-//add styling
-
-/* for (let i = 0; i < 9; i++) {
-    squares[i].addEventListener('click', () => {
-        alert('Square ' + i + ' is clicked');
-    })
-    
-} */
-
-//attach elements
 attach(mainContainer, [gameTitleDiv, controlsContainer, gameStatusContainer, gameBoardContainer]);
 attach(gameStatusContainer, [displayStatus, continueBtn])
-attach(playerOneInd, [playerOneIndicator, playerOneScore])
+attach(playerOneInd, [/* playerOneIndicator, */ playerOneScore])
 attach(playerOneScreen, [playerOneName, playerOneInd]);
 
-attach(playerTwoInd, [playerTwoIndicator, playerTwoScore])
+attach(playerTwoInd, [/* playerTwoIndicator, */ playerTwoScore])
 attach(playerTwoScreen, [playerTwoName, playerTwoInd]);
 attach(controlsContainer, [playerOneScreen, controlsDiv, playerTwoScreen])
 attach(gameBoardContainer, [gameBoard]);
