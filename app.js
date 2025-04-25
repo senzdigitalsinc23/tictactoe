@@ -4,9 +4,12 @@ const gameController = (() => {
 
     gameStatusContainer.style.display = 'none';
     playerOneInd.style.backgroundColor = 'red'
+    onePlayer.checked = true;
 
     const showElements = (elements = []) => {
-        elements.style.display = 'none'
+        elements.forEach((element) => {
+            element.style.display = 'block'
+        })
     }
 
     const hideElements = (elements = []) => {
@@ -17,8 +20,26 @@ const gameController = (() => {
 
     hideElements([
         controlsContainer,
-        gameBoard
+        gameBoard,
+        txtPlayerTwo,
     ]);
+
+    onePlayer.addEventListener('click', () => {
+        if (onePlayer.checked == true) {
+            showElements([txtPlayerOne, btnStart]);
+            hideElements([txtPlayerTwo])
+            txtPlayerTwo.disabled = true;
+            txtPlayerOne.enabled
+        }
+    });
+
+    twoPlayer.addEventListener('click', () => {
+        if (twoPlayer.checked == true) {
+            showElements([txtPlayerOne,txtPlayerTwo, btnStart])
+            txtPlayerOne.disabled = false;
+            txtPlayerTwo.disabled = false;
+        }
+    })
     
     const play = () => {
         for (let i = 0; i < 9; i++) {
