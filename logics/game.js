@@ -85,33 +85,3 @@ const gamePlay = (() => {
         restartGame
     };
 })();
-
-
-gamePlay.makeMove(0);
-gamePlay.makeMove(4);
-gamePlay.makeMove(1);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
-
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-gamePlay.makeMove(0);
-gamePlay.makeMove(4);
-gamePlay.makeMove(1);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
-
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-gamePlay.makeMove(4);
-gamePlay.makeMove(0);
-gamePlay.makeMove(8);
-gamePlay.makeMove(2);
-gamePlay.makeMove(7);
-gamePlay.makeMove(1);
-
-
-console.log(`Player ${gamePlay.getWinner()} wins`);
-
-console.log(gamePlay.getPlayerOneWins());
-console.log(gamePlay.getPlayerTwoWins());

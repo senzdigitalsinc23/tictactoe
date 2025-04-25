@@ -99,11 +99,73 @@ button {
     border: 5px solid rgb(251, 221, 157);
     background-image: url('../img/board.png');
     background-size: cover;
-
+    gap: 10px;
 }
 
 .gameboard>div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 5em;
+    color: rgb(198, 184, 159);
     border: 0px solid white;
+    cursor: pointer;
+}
+
+.gamestatus {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0 0 10px 0;
+}
+
+.gamestatus>button {
+    background-color: blue;
+    font-weight: bolder;
+    color: white;
+}
+
+.displaystatus {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+.gamemodecontainer {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.mainmenu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0 30px;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 4px gray;
+    border-radius: 8px;
+    width: 200px;
+    height: fit-content;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: x-large;
+    background-color: rgb(254, 237, 216);
+    margin: 10px 0;
+}
+
+.modegroup {
+    border: 0;
+    width: 100%;
+    display: inline;
+    flex-direction: column;
+    align-items: baseline;
+    font-size: 0.7em;    
+}
+
+.modegroup > input, button {
+    margin: 10px;
 }
