@@ -97,8 +97,4 @@ const gamePlay = (() => {
         getBoard,
         resetGame,
         resetWinner,
-    };
-})();
-
-
-
+    })();
