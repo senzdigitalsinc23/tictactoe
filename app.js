@@ -3,18 +3,20 @@ const gameController = (() => {
     let winner = document.querySelector('.displaystatus');
 
     gameStatusContainer.style.display = 'none';
-    playerOneInd.style.backgroundColor = 'red'
+    playerOneInd.style.backgroundColor = 'red';
     onePlayer.checked = true;
+    txtPlayerOne.style.display = 'block';
+    btnStart.style.display = 'block';
 
     const showElements = (elements = []) => {
         elements.forEach((element) => {
-            element.style.display = 'block'
+            element.style.display = 'block';
         })
     }
 
     const hideElements = (elements = []) => {
         elements.forEach((element) => {
-            element.style.display = 'none'
+            element.style.display = 'none';
         })
     }
 
@@ -24,23 +26,6 @@ const gameController = (() => {
         txtPlayerTwo,
     ]);
 
-    onePlayer.addEventListener('click', () => {
-        if (onePlayer.checked == true) {
-            showElements([txtPlayerOne, btnStart]);
-            hideElements([txtPlayerTwo])
-            txtPlayerTwo.disabled = true;
-            txtPlayerOne.enabled
-        }
-    });
-
-    twoPlayer.addEventListener('click', () => {
-        if (twoPlayer.checked == true) {
-            showElements([txtPlayerOne,txtPlayerTwo, btnStart])
-            txtPlayerOne.disabled = false;
-            txtPlayerTwo.disabled = false;
-        }
-    })
-    
     const play = () => {
         for (let i = 0; i < 9; i++) {
             squares[i].addEventListener('click', () => {
@@ -65,11 +50,22 @@ const gameController = (() => {
         }   
     }
 
+    let getWin = () => {
+        let win = '';
+        if (gamePlay.getWinner() == 1) {
+             win = playerOneName.innerHTML + " wins";
+        }else if (gamePlay.getWinner() == 2) {
+            win = playerTwoName.innerHTML + " wins";
+       }
+
+        return win;
+    }
+
     const displayWinner = () => {        
         if (gamePlay.getWinner() == 1 || gamePlay.getWinner() ==2) {
             winner.style.color = gamePlay.getWinner() == 1 ? 'green' : 'red';
 
-            winner.innerHTML = `Player ${ gamePlay.getWinner() } wins`;
+            winner.innerHTML = getWin();
 
             gameStatusContainer.style.display = 'flex';
         }else if(gamePlay.getWinner() == 0){
@@ -109,6 +105,42 @@ const gameController = (() => {
         }
     }
 
+    onePlayer.addEventListener('click', () => {
+        if (onePlayer.checked == true) {
+            showElements([txtPlayerOne, btnStart]);
+            hideElements([txtPlayerTwo])
+            txtPlayerTwo.disabled = true;
+            txtPlayerOne.enabled
+        }
+    });
+
+    twoPlayer.addEventListener('click', () => {
+        if (twoPlayer.checked == true) {
+            showElements([txtPlayerOne,txtPlayerTwo, btnStart])
+            txtPlayerOne.disabled = false;
+            txtPlayerTwo.disabled = false;
+        }
+    });
+
+    btnStart.addEventListener('click', () => {
+        if (onePlayer.checked == true && txtPlayerOne.value != '') {
+            onePlayer.checked = false;
+            twoPlayer.checked = false;
+            controlsContainer.style.display = 'flex';
+            gameBoard.style.display = 'grid';
+
+            playerOneName.innerHTML = txtPlayerOne.value + " (X)";
+            gameMenu.style.display = 'none'
+        }else if(twoPlayer.checked == true && txtPlayerOne.value != '' && txtPlayerTwo.value != '') {
+            onePlayer.checked = false;
+            controlsContainer.style.display = 'flex';
+            gameBoard.style.display = 'grid';
+
+            playerOneName.innerHTML = txtPlayerOne.value + " (X)";
+            playerTwoName.innerHTML = txtPlayerTwo.value + " (O)";
+            gameMenu.style.display = 'none'
+        }
+    });
 
     return { play, restart }
     

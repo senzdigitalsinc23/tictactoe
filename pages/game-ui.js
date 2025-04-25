@@ -49,7 +49,7 @@ let playerOneInd = createElement('div','playeroneind');
 let playerTwoScreen = createElement('div', 'playertwoscreen')
 let playerTwoIndicator = createElement('div', 'playertwoindicator', 'O');
 let playerTwoScore = createElement('div', 'playertwoscore', '0');
-let playerTwoName = createElement('div', 'playertwoname', 'Player 2')
+let playerTwoName = createElement('div', 'playertwoname', 'Player 2 (O)')
 let playerTwoInd = createElement('div', 'playertwoind')
 
 //Create gameboard squares
