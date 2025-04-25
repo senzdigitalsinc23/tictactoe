@@ -98,11 +98,7 @@ const gamePlay = (() => {
         resetGame,
         resetWinner,
     };
-<<<<<<< HEAD
 })();
 
 
 
-=======
-})();
->>>>>>> gamelogic
