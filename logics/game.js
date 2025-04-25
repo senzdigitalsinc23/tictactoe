@@ -97,4 +97,12 @@ const gamePlay = (() => {
         getBoard,
         resetGame,
         resetWinner,
-    })();
+    };
+<<<<<<< HEAD
+})();
+
+
+
+=======
+})();
+>>>>>>> gamelogic
