@@ -4,9 +4,11 @@ const gameController = (() => {
 
     gameStatusContainer.style.display = 'none';
     playerOneInd.style.backgroundColor = 'red';
-    onePlayer.checked = true;
+    twoPlayer.checked = true;
     txtPlayerOne.style.display = 'block';
+    txtPlayerTwo.style.display = 'block';
     btnStart.style.display = 'block';
+    onePlayer.disabled = true;
 
     const showElements = (elements = []) => {
         elements.forEach((element) => {
@@ -23,7 +25,6 @@ const gameController = (() => {
     hideElements([
         controlsContainer,
         gameBoard,
-        txtPlayerTwo,
     ]);
 
     const play = () => {
