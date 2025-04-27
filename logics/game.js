@@ -53,6 +53,16 @@ const gamePlay = (() => {
         gameActive = true;
         
     }
+
+    const gameOver = () => {
+        if ((getPlayerOneWins() + getPlayerTwoWins()) == 5) {
+            if (getPlayerOneWins() > getPlayerTwoWins()) {
+                return 1;
+            }else if(getPlayerTwoWins() > getPlayerOneWins()){
+                return 2;
+            }
+        }
+    }
     
 
     const makeMove = (index) => {
@@ -99,6 +109,3 @@ const gamePlay = (() => {
         resetWinner,
     };
 })();
-
-
-
