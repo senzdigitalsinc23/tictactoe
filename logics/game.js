@@ -61,6 +61,9 @@ const gamePlay = (() => {
             }else if(getPlayerTwoWins() > getPlayerOneWins()){
                 return 2;
             }
+
+            playerOneWins = 0;
+            playerTwoWins = 0;
         }
     }
     
@@ -107,5 +110,6 @@ const gamePlay = (() => {
         getBoard,
         resetGame,
         resetWinner,
+        gameOver,
     };
 })();
