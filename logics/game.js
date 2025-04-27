@@ -56,17 +56,20 @@ const gamePlay = (() => {
 
     const gameOver = () => {
         if ((getPlayerOneWins() + getPlayerTwoWins()) == 5) {
-            if (getPlayerOneWins() > getPlayerTwoWins()) {
-                return 1;
-            }else if(getPlayerTwoWins() > getPlayerOneWins()){
-                return 2;
-            }
-
-            playerOneWins = 0;
-            playerTwoWins = 0;
-        }
+            return true;
+        }else return false;
     }
     
+    const getGameWinner = () => {
+        if (getPlayerOneWins() > getPlayerTwoWins()) {
+            return 1;
+        }else if(getPlayerTwoWins() > getPlayerOneWins()){
+            return 2;
+        }
+
+        playerOneWins = 0;
+        playerTwoWins = 0;
+    }
 
     const makeMove = (index) => {
         //alert(index)
@@ -111,5 +114,6 @@ const gamePlay = (() => {
         resetGame,
         resetWinner,
         gameOver,
+        getGameWinner,
     };
 })();
