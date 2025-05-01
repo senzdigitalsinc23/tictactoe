@@ -76,6 +76,7 @@ const gamePlay = (() => {
         if (!gameActive || board[index] !== "") {return;}
         
         board[index] = currentPlayer;
+
         if (checkWinner(board, currentPlayer)) {
             if (currentPlayer == "X") {
                 setPlayerOneWins();
