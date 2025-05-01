@@ -38,6 +38,35 @@ const gameController = (() => {
                     playerOneScore.innerHTML = gamePlay.getPlayerOneWins();
                     playerTwoScore.innerHTML = gamePlay.getPlayerTwoWins();
                     highlightPlayerTurn();
+
+                    let color = 'red';
+                    let fontSize = '3em';
+                    let fontWeight = 'bolder';
+                    let display = 'flex';
+                    let flexDirection = 'column';
+                    let alignItems = 'center';
+                    let message = '';
+                    
+                    if (gamePlay.gameOver()) {
+                        if (gamePlay.getGameWinner() == 1) {
+                            message = "GAME OVER <br>" + playerOneName.innerHTML + " WINS";
+                        }else if (gamePlay.getGameWinner() == 2) {
+
+                        }
+
+                        gameStatusContainer.style.color = color;
+                        gameStatusContainer.style.fontSize = fontSize
+                        gameStatusContainer.style.fontWeight = fontWeight;
+                        gameStatusContainer.style.display = display;
+                        gameStatusContainer.style.alignItems = alignItems;
+
+                        gameStatusContainer.innerHTML = message;
+
+                        gamePlay.restartGame();
+                        return;
+                    } else {
+                
+                    }
                 }
             })           
         }
