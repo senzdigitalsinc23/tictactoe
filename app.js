@@ -27,9 +27,9 @@ const gameController = (() => {
         gameBoard,
     ]);
 
-    const play = () => {
+    const play = () => {       
         for (let i = 0; i < 9; i++) {
-            squares[i].addEventListener('click', () => {
+            squares[i].addEventListener('click', () => {                
                 if (gamePlay.getBoard()[i] == "" && gamePlay.getWinner() == null) {
                     squares[i].innerHTML = gamePlay.getCurrentPlayer();
                     gamePlay.makeMove(i);
@@ -41,6 +41,7 @@ const gameController = (() => {
                 }
             })           
         }
+        
     }
 
     const disablePointer = (squares = []) => {
