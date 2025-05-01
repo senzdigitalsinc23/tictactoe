@@ -25,6 +25,7 @@ let txtPlayerOne = createElement('input', 'txtplayerone');
 let txtPlayerTwo = createElement('input', 'txtplayertwo');
 
 let btnStart = createElement('button', 'start', "Start")
+let btnReplay = createElement('button', 'replay', 'Play Again');
 
 attributes({'type':'text', 'placeholder':'Enter player 1 name'}, [txtPlayerOne])
 attributes({'type':'text', 'placeholder':'Enter player 2 name'}, [txtPlayerTwo])
@@ -70,7 +71,7 @@ attach(mainMenuCont, [btnGroup])
 attach(btnGroup, [onePlayer,onePlayerLabel, brk, brk, twoPlayer,twoPlayerLabel, txtPlayerOne,txtPlayerTwo, btnStart])
 
 
-attach(gameStatusContainer, [displayStatus, continueBtn])
+attach(gameStatusContainer, [displayStatus, continueBtn, btnReplay])
 attach(playerOneInd, [/* playerOneIndicator, */ playerOneScore])
 attach(playerOneScreen, [playerOneName, playerOneInd]);
 

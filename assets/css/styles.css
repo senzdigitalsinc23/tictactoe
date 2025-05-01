@@ -120,7 +120,7 @@ button {
     padding: 0 0 10px 0;
 }
 
-.gamestatus>button {
+.gamestatus>.continue {
     background-color: blue;
     font-weight: bolder;
     color: white;
@@ -168,4 +168,11 @@ button {
 
 .modegroup > input, button {
     margin: 10px;
+}
+
+.replay {
+    display: none;
+    background-color: rgb(122, 71, 8);
+    font-weight: bolder;
+    color: white;
 }
