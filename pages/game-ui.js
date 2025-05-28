@@ -6,7 +6,7 @@ let gameTitleDiv = createElement('div', 'gametitlediv', "TIC TAC TOE");
 let controlsContainer = createElement('div', 'controlscontainer');
 let controlsDiv = createElement('div', 'controlsdiv');
 let btnExit = createElement('button', 'exit', "Exit Game")
-let btnReset = createElement('button', 'reset', "Restart")
+let btnReset = createElement('button', 'reset', "New Game")
 let gameMonitorDiv = createElement('div', 'gamemonitordiv', 'Game Monitor');
 let gameBoardContainer = createElement('gameboardcontainer', 'gameboardcontainer');
 let gameBoard = createElement('div', 'gameboard')
@@ -51,7 +51,10 @@ let playerTwoScreen = createElement('div', 'playertwoscreen')
 let playerTwoIndicator = createElement('div', 'playertwoindicator', 'O');
 let playerTwoScore = createElement('div', 'playertwoscore', '0');
 let playerTwoName = createElement('div', 'playertwoname', 'Player 2 (O)')
-let playerTwoInd = createElement('div', 'playertwoind')
+let playerTwoInd = createElement('div', 'playertwoind');
+
+let gameOverContainer = createElement('div', 'gameovercont', 'uiykjgfsfdghgjkkhj');
+let gameOverMain = createElement('div', 'gameovermain');
 
 //Create gameboard squares
 let squares = [];
@@ -65,13 +68,14 @@ for (let i = 1; i <= 3; i++) {
     
 }
 
-attach(mainContainer, [gameTitleDiv, gameMenu, controlsContainer, gameStatusContainer, gameBoardContainer]);
+attach(mainContainer, [gameTitleDiv, gameMenu, controlsContainer, gameStatusContainer, gameOverMain, gameBoardContainer]);
+attach(gameOverMain, [gameOverContainer, btnReplay])
 attach(gameMenu, [mainMenuCont])
 attach(mainMenuCont, [btnGroup])
 attach(btnGroup, [onePlayer,onePlayerLabel, brk, brk, twoPlayer,twoPlayerLabel, txtPlayerOne,txtPlayerTwo, btnStart])
 
 
-attach(gameStatusContainer, [displayStatus, continueBtn, btnReplay])
+attach(gameStatusContainer, [displayStatus, continueBtn])
 attach(playerOneInd, [/* playerOneIndicator, */ playerOneScore])
 attach(playerOneScreen, [playerOneName, playerOneInd]);
 

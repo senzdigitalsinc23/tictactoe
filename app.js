@@ -51,18 +51,22 @@ const gameController = (() => {
                         if (gamePlay.getGameWinner() == 1) {
                             message = "GAME OVER <br>" + playerOneName.innerHTML + " WINS";
                         }else if (gamePlay.getGameWinner() == 2) {
+                            message = "GAME OVER <br>" + playerTwoName.innerHTML + " WINS";
 
                         }
 
-                        gameStatusContainer.style.color = color;
-                        gameStatusContainer.style.fontSize = fontSize
-                        gameStatusContainer.style.fontWeight = fontWeight;
-                        gameStatusContainer.style.display = display;
-                        gameStatusContainer.style.alignItems = alignItems;
+                        gameOverContainer.style.color = color;
+                        gameOverContainer.style.fontSize = fontSize
+                        gameOverContainer.style.fontWeight = fontWeight;
+                        gameOverMain.style.display = display;
+                        gameOverContainer.style.alignItems = alignItems;
 
-                        gameStatusContainer.innerHTML = message;
+                        gameOverContainer.innerHTML = message;
 
-                        gamePlay.restartGame();
+                        gameStatusContainer.style.display = 'none';
+
+                        btnReplay.style.display = '';
+
                         return;
                     } else {
                 
@@ -107,10 +111,14 @@ const gameController = (() => {
         }
     }
 
-    continueBtn.addEventListener('click', () => {
+    let restartAll = () => {
         for (let i = 0; i < 9; i++) {
             squares[i].innerHTML = "";     
         }
+    }
+
+    continueBtn.addEventListener('click', () => {
+        restartAll();
 
         gamePlay.resetGame();
         gameStatusContainer.style.display = 'none';
@@ -172,6 +180,17 @@ const gameController = (() => {
             gameMenu.style.display = 'none'
         }
     });
+
+    btnReplay.addEventListener('click', () => {
+        restartAll();
+        gamePlay.restartGame();
+
+        playerOneScore.innerHTML = 0;
+        playerTwoScore.innerHTML = 0;
+
+        gameOverMain.style.display = 'none';
+        //btnReplay.style.display = 'none';
+    })
 
     return { play, restart }
     
